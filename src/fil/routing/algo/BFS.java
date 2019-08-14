@@ -129,6 +129,7 @@ public class BFS {
 				System.out.println("Name: " + nameLink + " \n");
 				Map<String, NetworkLink> listLink = topo.getListLink();
 				if(listLink == null) System.out.println(" null listlink \n");
+				
 				double usedBw = listLink.get(nameLink).getUsedBandwidth();
 				if(bwDemand > (MAX_BW - usedBw)) { // one route has failed
 					System.out.println("This path has no remained bw \n");
@@ -152,9 +153,7 @@ public class BFS {
 			list.add(visited.get(i));
 //			System.out.print(visited.get(i).getNameNetworkSwitch()+" ");
 		}
-//		System.out.println();
 		mypath.put(i, list);
-//		System.out.println("Times "+i);
 		i++;
 	}
 

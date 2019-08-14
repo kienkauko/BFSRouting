@@ -12,11 +12,11 @@ public class NetworkLink {
 		endSwitch = new NetworkSwitch();
 		usedBandwidth = 0;
 	}
-	public NetworkLink(NetworkSwitch start, NetworkSwitch end, double bw )
+	public NetworkLink(NetworkSwitch start, NetworkSwitch end)
 	{
 		this.startSwitch = start;
 		this.endSwitch = end;
-		this.usedBandwidth = bw;
+		this.usedBandwidth = 0;
 		this.setNameLink(start.getNameNetworkSwitch() + end.getNameNetworkSwitch());
 		
 	}
@@ -34,6 +34,9 @@ public class NetworkLink {
 	}
 	public double getUsedBandwidth() {
 		return usedBandwidth;
+	}
+	public void setUsedBandwidth(double bandwidth) {
+		usedBandwidth += bandwidth;
 	}
 	public String getNameLink() {
 		return nameLink;

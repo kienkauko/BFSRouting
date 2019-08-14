@@ -22,10 +22,14 @@ public class NetworkTopology {
 		numSwitch = 15;
 		listSwitch = new LinkedList<NetworkSwitch>();
 		listLink = new HashMap<>(); 
-	//	bwMax = 1024;
 		neighborOfNode = new HashMap<>();
 	}
-	
+	public NetworkTopology (NetworkTopology network) {
+		numSwitch = 15;
+		listSwitch = network.getListSwitch();
+		listLink = network.getListLink();
+		neighborOfNode = network.getNeighborOfNode();
+	}
 	public void initTopo() {
 		listSwitch.add(0,null);
 		for (int i = 1; i <= numSwitch; i++) { //init each switch
@@ -50,7 +54,7 @@ public class NetworkTopology {
 			LinkedList<NetworkSwitch> nodeNeighbor = neighborOfNode.get(node);
 			for (NetworkSwitch node_temp : nodeNeighbor) {
 				String name = node.getNameNetworkSwitch() + node_temp.getNameNetworkSwitch();
-				NetworkLink linkNode = new NetworkLink(node, node_temp, 0);
+				NetworkLink linkNode = new NetworkLink(node, node_temp);
 				listLink.put(name, linkNode);		
 			}
 		}
